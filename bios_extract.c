@@ -100,6 +100,8 @@ static struct {
     {"PhoenixBIOS 4.0", "BCPSEGMENT", PhoenixExtract},
     {"Phoenix ServerBIOS 3", "BCPSEGMENT", PhoenixExtract},
     {"Phoenix TrustedCore", "BCPSEGMENT", PhoenixExtract},
+    /* some award modules - not sure this is a good solution */
+    {"Award Modular BIOS", "Award Software Inc", AwardExtract},
     {NULL, NULL, NULL},
 };
 
