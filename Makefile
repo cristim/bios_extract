@@ -1,4 +1,6 @@
 MAKE = make
+INSTALL = install
+PREFIX ?= /usr/local
 CFLAGS ?= -g -fpack-struct -Wall -O0
 CC = gcc
 
@@ -20,6 +22,12 @@ ami_slab: $(AMISLAB_OBJS)
 LH5_TEST_OBJS = lh5_extract.o lh5_test.o
 lh5_test: $(LH5_TEST_OBJS)
 	$(CC) $(CFLAGS) $(LH5_TEST_OBJS) -o lh5_test
+
+install: all
+	mkdir -p $(DESTDIR)$(PREFIX)/bin
+	$(INSTALL) -m 0755 ami_slab $(DESTDIR)$(PREFIX)/bin
+	$(INSTALL) -m 0755 bcpvpd $(DESTDIR)$(PREFIX)/bin
+	$(INSTALL) -m 0755 bios_extract $(DESTDIR)$(PREFIX)/bin
 
 clean: 
 	rm -f *.o
